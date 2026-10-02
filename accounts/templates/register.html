@@ -1,0 +1,323 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Account — StudyForge{% endblock %}
+
+{% block content %}
+
+<section class="auth-section">
+
+```
+<div class="auth-container">
+
+    <!-- LEFT SIDE -->
+    <div class="auth-left">
+
+        <div class="auth-brand">
+
+            <div class="auth-logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <span>StudyForge</span>
+
+        </div>
+
+        <div class="auth-message">
+
+            <span class="auth-badge">
+                <i class="fa-solid fa-sparkles"></i>
+                START YOUR JOURNEY
+            </span>
+
+            <h1>
+                Your smarter
+                <span>study life</span>
+                starts here.
+            </h1>
+
+            <p>
+                Create your StudyForge account and build a
+                personalized learning workspace designed
+                around the way you study.
+            </p>
+
+        </div>
+
+        <div class="benefits">
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+
+                <div>
+                    <strong>AI-powered learning</strong>
+
+                    <p>
+                        Learn difficult topics with intelligent
+                        assistance.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-folder-open"></i>
+                </div>
+
+                <div>
+                    <strong>Organized study space</strong>
+
+                    <p>
+                        Keep your subjects, notes and materials
+                        together.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="benefit">
+
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+
+                <div>
+                    <strong>Track your progress</strong>
+
+                    <p>
+                        See your learning journey improve
+                        over time.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT SIDE -->
+    <div class="auth-card">
+
+        <div class="auth-card-header">
+
+            <div class="form-icon">
+                <i class="fa-solid fa-user-plus"></i>
+            </div>
+
+            <div>
+                <h2>Create your account</h2>
+
+                <p>
+                    Join StudyForge and start learning smarter.
+                </p>
+            </div>
+
+        </div>
+
+
+        <form method="POST" class="register-form">
+
+            {% csrf_token %}
+
+
+            <!-- USERNAME -->
+            <div class="form-group">
+
+                <label for="{{ form.username.id_for_label }}">
+                    Username
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    {{ form.username }}
+
+                </div>
+
+                {% if form.username.errors %}
+
+                    <div class="form-error">
+                        {{ form.username.errors }}
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- EMAIL -->
+            <div class="form-group">
+
+                <label for="{{ form.email.id_for_label }}">
+                    Email Address
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    {{ form.email }}
+
+                </div>
+
+                {% if form.email.errors %}
+
+                    <div class="form-error">
+                        {{ form.email.errors }}
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- FULL NAME -->
+            <div class="form-group">
+
+                <label for="{{ form.full_name.id_for_label }}">
+                    Full Name
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="fa-solid fa-id-card"></i>
+
+                    {{ form.full_name }}
+
+                </div>
+
+                {% if form.full_name.errors %}
+
+                    <div class="form-error">
+                        {{ form.full_name.errors }}
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- DATE OF BIRTH -->
+            <div class="form-group">
+
+                <label for="{{ form.date_of_birth.id_for_label }}">
+                    Date of Birth
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="fa-solid fa-calendar-days"></i>
+
+                    {{ form.date_of_birth }}
+
+                </div>
+
+                {% if form.date_of_birth.errors %}
+
+                    <div class="form-error">
+                        {{ form.date_of_birth.errors }}
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- PASSWORD -->
+            <div class="form-group">
+
+                <label for="{{ form.password1.id_for_label }}">
+                    Password
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    {{ form.password1 }}
+
+                </div>
+
+                {% if form.password1.errors %}
+
+                    <div class="form-error">
+                        {{ form.password1.errors }}
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- CONFIRM PASSWORD -->
+            <div class="form-group">
+
+                <label for="{{ form.password2.id_for_label }}">
+                    Confirm Password
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    {{ form.password2 }}
+
+                </div>
+
+                {% if form.password2.errors %}
+
+                    <div class="form-error">
+                        {{ form.password2.errors }}
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- NON FIELD ERRORS -->
+            {% if form.non_field_errors %}
+
+                <div class="form-error form-general-error">
+                    {{ form.non_field_errors }}
+                </div>
+
+            {% endif %}
+
+
+            <!-- REGISTER BUTTON -->
+            <button type="submit" class="register-button">
+
+                Create Account
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+
+            <p class="terms">
+
+                By creating an account, you agree to use
+                StudyForge responsibly for educational purposes.
+
+            </p>
+
+        </form>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+{% endblock %}
