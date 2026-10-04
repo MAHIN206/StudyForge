@@ -1,600 +1,564 @@
 {% extends 'base.html' %}
 
-{% block title %}StudyForge — Learn Smarter{% endblock %}
+{% block title %}StudyForge — AI-Powered Learning{% endblock %}
 
 {% block content %}
 
-<section class="hero">
+<section class="sf-hero">
 
-```
-<div class="hero-container">
+    <div class="sf-hero-container">
 
-    <div class="hero-content">
+        <div class="sf-hero-content">
 
-        <div class="hero-badge">
-            <i class="fa-solid fa-sparkles"></i>
-            AI-POWERED STUDY ASSISTANT
+            <div class="sf-eyebrow">
+                <span class="sf-eyebrow-dot"></span>
+                AI-POWERED STUDY PLATFORM
+            </div>
+
+            <h1>
+                Study smarter.
+                <span>Build your future.</span>
+            </h1>
+
+            <p>
+                StudyForge brings your notes, PDFs, subjects and
+                AI-powered learning tools into one focused workspace
+                built for modern students.
+            </p>
+
+            <div class="sf-hero-actions">
+
+                <a href="{% url 'register' %}" class="sf-primary-btn">
+                    Get Started
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+                <a href="#features" class="sf-secondary-btn">
+                    Explore Features
+                </a>
+
+            </div>
+
+            <div class="sf-trust-row">
+
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Free to get started
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Built for students
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    AI-powered
+                </div>
+
+            </div>
+
         </div>
 
-        <h1>
-            Turn Your
-            <span>Study Time</span>
-            Into Progress.
-        </h1>
 
-        <p>
-            StudyForge helps students organize their learning,
-            understand difficult topics, study from PDFs,
-            practice with smart quizzes, and track their progress
-            in one powerful workspace.
-        </p>
+        <div class="sf-product-preview">
 
-        <div class="hero-buttons">
+            <div class="sf-dashboard">
 
-            <a href="{% url 'register' %}" class="hero-primary">
-                Get Started
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
+                <div class="sf-dashboard-top">
 
-            <a href="#features" class="hero-secondary">
-                <i class="fa-solid fa-compass"></i>
-                Explore Features
-            </a>
-
-        </div>
-
-        <div class="hero-trust">
-
-            <div class="trust-item">
-                <i class="fa-solid fa-circle-check"></i>
-                Built for Students
-            </div>
-
-            <div class="trust-item">
-                <i class="fa-solid fa-circle-check"></i>
-                AI-Powered
-            </div>
-
-            <div class="trust-item">
-                <i class="fa-solid fa-circle-check"></i>
-                Easy to Use
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="hero-visual">
-
-        <div class="dashboard-window">
-
-            <div class="window-top">
-
-                <div class="window-dots">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-
-                <div class="window-title">
-                    StudyForge Dashboard
-                </div>
-
-                <div class="window-status">
-                    <i class="fa-solid fa-circle"></i>
-                    Online
-                </div>
-
-            </div>
-
-
-            <div class="dashboard-body">
-
-                <div class="dashboard-sidebar">
-
-                    <div class="side-logo">
-                        <i class="fa-solid fa-graduation-cap"></i>
+                    <div class="sf-window-controls">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
 
-                    <div class="side-item active">
-                        <i class="fa-solid fa-house"></i>
+                    <div class="sf-window-title">
+                        StudyForge
                     </div>
 
-                    <div class="side-item">
-                        <i class="fa-solid fa-book"></i>
-                    </div>
-
-                    <div class="side-item">
-                        <i class="fa-solid fa-file-lines"></i>
-                    </div>
-
-                    <div class="side-item">
-                        <i class="fa-solid fa-brain"></i>
-                    </div>
-
-                    <div class="side-item">
-                        <i class="fa-solid fa-chart-line"></i>
+                    <div class="sf-live">
+                        <span></span>
+                        Live
                     </div>
 
                 </div>
 
 
-                <div class="dashboard-main">
+                <div class="sf-dashboard-content">
 
-                    <div class="dashboard-header">
+                    <aside class="sf-sidebar">
 
-                        <div>
-                            <small>GOOD MORNING</small>
-                            <h3>Ready to learn?</h3>
-                        </div>
-
-                        <div class="profile-circle">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
-
-                    </div>
-
-
-                    <div class="progress-card">
-
-                        <div class="progress-info">
-
+                        <div class="sf-sidebar-logo">
                             <div>
-                                <span>Weekly Progress</span>
-                                <strong>78%</strong>
+                                <i class="fa-solid fa-graduation-cap"></i>
                             </div>
-
-                            <i class="fa-solid fa-chart-line"></i>
-
+                            StudyForge
                         </div>
 
-                        <div class="progress-bar">
-                            <div></div>
-                        </div>
+                        <div class="sf-sidebar-menu">
 
-                        <small>
-                            Keep going! You're making great progress.
-                        </small>
-
-                    </div>
-
-
-                    <div class="mini-title">
-                        Continue Learning
-                    </div>
-
-
-                    <div class="subject-grid">
-
-                        <div class="subject-card">
-
-                            <div class="subject-icon purple">
-                                <i class="fa-solid fa-code"></i>
+                            <div class="sf-menu-item active">
+                                <i class="fa-solid fa-grid-2"></i>
+                                Dashboard
                             </div>
 
-                            <div>
-                                <strong>Programming</strong>
-                                <small>12 lessons</small>
+                            <div class="sf-menu-item">
+                                <i class="fa-solid fa-book"></i>
+                                Subjects
                             </div>
 
-                            <i class="fa-solid fa-chevron-right arrow"></i>
-
-                        </div>
-
-
-                        <div class="subject-card">
-
-                            <div class="subject-icon blue">
-                                <i class="fa-solid fa-database"></i>
+                            <div class="sf-menu-item">
+                                <i class="fa-solid fa-file-lines"></i>
+                                Notes
                             </div>
 
-                            <div>
-                                <strong>Database</strong>
-                                <small>8 lessons</small>
-                            </div>
-
-                            <i class="fa-solid fa-chevron-right arrow"></i>
-
-                        </div>
-
-
-                        <div class="subject-card">
-
-                            <div class="subject-icon green">
+                            <div class="sf-menu-item">
                                 <i class="fa-solid fa-robot"></i>
+                                AI Assistant
                             </div>
+
+                        </div>
+
+                        <div class="sf-sidebar-bottom">
+
+                            <div class="sf-menu-item">
+                                <i class="fa-solid fa-gear"></i>
+                                Settings
+                            </div>
+
+                        </div>
+
+                    </aside>
+
+
+                    <main class="sf-main-panel">
+
+                        <div class="sf-dashboard-heading">
 
                             <div>
-                                <strong>Artificial Intelligence</strong>
-                                <small>15 lessons</small>
+                                <span>Good morning</span>
+                                <h3>Ready to learn?</h3>
                             </div>
 
-                            <i class="fa-solid fa-chevron-right arrow"></i>
+                            <div class="sf-user-avatar">
+                                M
+                            </div>
 
                         </div>
 
-                    </div>
 
+                        <div class="sf-progress-box">
 
-                    <div class="ai-card">
+                            <div class="sf-progress-top">
 
-                        <div class="ai-icon">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                <div class="sf-progress-icon">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                </div>
+
+                                <div>
+                                    <span>Your progress</span>
+                                    <strong>78%</strong>
+                                </div>
+
+                            </div>
+
+                            <div class="sf-progress-track">
+                                <div></div>
+                            </div>
+
+                            <p>
+                                You're making great progress this week.
+                            </p>
+
                         </div>
 
-                        <div>
-                            <strong>AI Study Assistant</strong>
-                            <small>
-                                Ask questions and get intelligent explanations.
-                            </small>
+
+                        <div class="sf-panel-label">
+                            Your subjects
                         </div>
 
-                        <i class="fa-solid fa-arrow-right"></i>
 
-                    </div>
+                        <div class="sf-subjects">
 
+                            <div class="sf-subject">
+
+                                <div class="sf-subject-icon sf-purple">
+                                    <i class="fa-solid fa-code"></i>
+                                </div>
+
+                                <div class="sf-subject-info">
+                                    <strong>Programming</strong>
+                                    <span>12 lessons</span>
+                                </div>
+
+                                <b>82%</b>
+
+                            </div>
+
+
+                            <div class="sf-subject">
+
+                                <div class="sf-subject-icon sf-blue">
+                                    <i class="fa-solid fa-brain"></i>
+                                </div>
+
+                                <div class="sf-subject-info">
+                                    <strong>Artificial Intelligence</strong>
+                                    <span>8 lessons</span>
+                                </div>
+
+                                <b>74%</b>
+
+                            </div>
+
+
+                            <div class="sf-subject">
+
+                                <div class="sf-subject-icon sf-green">
+                                    <i class="fa-solid fa-database"></i>
+                                </div>
+
+                                <div class="sf-subject-info">
+                                    <strong>Database Systems</strong>
+                                    <span>10 lessons</span>
+                                </div>
+
+                                <b>69%</b>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="sf-ai-panel">
+
+                            <div class="sf-ai-symbol">
+                                <i class="fa-solid fa-sparkles"></i>
+                            </div>
+
+                            <div class="sf-ai-text">
+
+                                <strong>AI Study Assistant</strong>
+
+                                <span>
+                                    Ask questions, explain concepts,
+                                    summarize notes and practice smarter.
+                                </span>
+
+                            </div>
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </div>
+
+                    </main>
+
+                </div>
+
+            </div>
+
+
+            <div class="sf-floating-card sf-ai-floating">
+
+                <div class="sf-floating-icon">
+                    <i class="fa-solid fa-sparkles"></i>
+                </div>
+
+                <div>
+                    <span>AI Assistant</span>
+                    <strong>Ready to help</strong>
+                </div>
+
+            </div>
+
+
+            <div class="sf-floating-card sf-streak-floating">
+
+                <div class="sf-streak-icon">
+                    <i class="fa-solid fa-fire"></i>
+                </div>
+
+                <div>
+                    <span>Study streak</span>
+                    <strong>12 days</strong>
                 </div>
 
             </div>
 
         </div>
 
-
-        <div class="floating-card floating-ai">
-
-            <div class="floating-icon">
-                <i class="fa-solid fa-brain"></i>
-            </div>
-
-            <div>
-                <strong>AI Assistant</strong>
-                <small>Ready to help</small>
-            </div>
-
-            <span class="online-dot"></span>
-
-        </div>
-
-
-        <div class="floating-card floating-progress">
-
-            <div class="floating-progress-icon">
-                <i class="fa-solid fa-trophy"></i>
-            </div>
-
-            <div>
-                <small>Study Streak</small>
-                <strong>12 Days</strong>
-            </div>
-
-        </div>
-
     </div>
-
-</div>
-```
 
 </section>
 
-<section class="stats-section">
 
-```
-<div class="stats-container">
+<section class="sf-platform-strip">
 
-    <div class="stat">
+    <div class="sf-strip-container">
 
-        <div class="stat-icon">
+        <div class="sf-strip-intro">
+            <span>ONE PLATFORM</span>
+            Everything you need to learn better.
+        </div>
+
+        <div class="sf-strip-item">
             <i class="fa-solid fa-brain"></i>
+            AI Learning
         </div>
 
-        <div>
-            <strong>AI</strong>
-            <span>Powered Learning</span>
-        </div>
-
-    </div>
-
-
-    <div class="stat">
-
-        <div class="stat-icon">
+        <div class="sf-strip-item">
             <i class="fa-solid fa-file-pdf"></i>
+            PDF Learning
         </div>
 
-        <div>
-            <strong>PDF</strong>
-            <span>Study Materials</span>
-        </div>
-
-    </div>
-
-
-    <div class="stat">
-
-        <div class="stat-icon">
-            <i class="fa-solid fa-list-check"></i>
-        </div>
-
-        <div>
-            <strong>Smart</strong>
-            <span>Quizzes</span>
-        </div>
-
-    </div>
-
-
-    <div class="stat">
-
-        <div class="stat-icon">
+        <div class="sf-strip-item">
             <i class="fa-solid fa-chart-simple"></i>
+            Progress Tracking
         </div>
 
-        <div>
-            <strong>Track</strong>
-            <span>Your Progress</span>
+        <div class="sf-strip-item">
+            <i class="fa-solid fa-layer-group"></i>
+            Organized Notes
         </div>
 
     </div>
-
-</div>
-```
 
 </section>
 
-<section class="features-section" id="features">
 
-```
-<div class="section-heading">
+<section class="sf-features" id="features">
 
-    <span>
-        <i class="fa-solid fa-sparkles"></i>
-        POWERFUL FEATURES
-    </span>
+    <div class="sf-section-heading">
 
-    <h2>
-        Everything you need to
-        <strong>study smarter.</strong>
-    </h2>
-
-    <p>
-        StudyForge brings your entire study workflow
-        together in one simple and intelligent platform.
-    </p>
-
-</div>
-
-
-<div class="features-grid">
-
-    <div class="feature-card">
-
-        <div class="feature-icon purple">
-            <i class="fa-solid fa-brain"></i>
-        </div>
-
-        <h3>AI Study Assistant</h3>
-
-        <p>
-            Ask questions, understand complex concepts,
-            and get personalized explanations whenever
-            you need help.
-        </p>
-
-        <a href="{% url 'register' %}">
-            Explore
-            <i class="fa-solid fa-arrow-right"></i>
-        </a>
-
-    </div>
-
-
-    <div class="feature-card">
-
-        <div class="feature-icon blue">
-            <i class="fa-solid fa-file-pdf"></i>
-        </div>
-
-        <h3>Study From PDFs</h3>
-
-        <p>
-            Upload your study materials and turn lengthy
-            documents into an easier and more interactive
-            learning experience.
-        </p>
-
-        <a href="{% url 'register' %}">
-            Explore
-            <i class="fa-solid fa-arrow-right"></i>
-        </a>
-
-    </div>
-
-
-    <div class="feature-card">
-
-        <div class="feature-icon green">
-            <i class="fa-solid fa-circle-question"></i>
-        </div>
-
-        <h3>Smart Quizzes</h3>
-
-        <p>
-            Practice what you learn with intelligent
-            questions designed to strengthen your
-            understanding and memory.
-        </p>
-
-        <a href="{% url 'register' %}">
-            Explore
-            <i class="fa-solid fa-arrow-right"></i>
-        </a>
-
-    </div>
-
-
-    <div class="feature-card">
-
-        <div class="feature-icon orange">
-            <i class="fa-solid fa-chart-line"></i>
-        </div>
-
-        <h3>Track Progress</h3>
-
-        <p>
-            Monitor your learning journey, study habits,
-            completed topics, and overall progress.
-        </p>
-
-        <a href="{% url 'register' %}">
-            Explore
-            <i class="fa-solid fa-arrow-right"></i>
-        </a>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<section class="workflow-section">
-
-```
-<div class="workflow-container">
-
-    <div class="workflow-content">
-
-        <span class="section-label">
-            <i class="fa-solid fa-bolt"></i>
-            SIMPLE WORKFLOW
+        <span class="sf-section-label">
+            POWERFUL FEATURES
         </span>
 
         <h2>
-            From studying to
-            <span>understanding.</span>
+            Your entire study life,
+            <span>in one place.</span>
         </h2>
 
         <p>
-            StudyForge is designed to make your study process
-            simple. Bring your materials, learn with AI,
-            practice your knowledge, and track your improvement.
+            StudyForge combines organization, AI and productivity
+            tools to help you spend less time managing your studies
+            and more time actually learning.
         </p>
 
-        <a href="{% url 'register' %}" class="workflow-button">
-            Start Learning
+    </div>
+
+
+    <div class="sf-feature-layout">
+
+        <div class="sf-feature-large">
+
+            <div class="sf-feature-number">
+                01
+            </div>
+
+            <div class="sf-feature-icon">
+                <i class="fa-solid fa-robot"></i>
+            </div>
+
+            <h3>AI Study Assistant</h3>
+
+            <p>
+                Get intelligent explanations, ask questions and
+                understand difficult concepts without leaving your
+                study workspace.
+            </p>
+
+            <div class="sf-feature-preview">
+
+                <div class="sf-chat-line">
+                    <span>You</span>
+                    Explain recursion simply.
+                </div>
+
+                <div class="sf-chat-line ai">
+                    <span>AI</span>
+                    Recursion is when a function calls itself...
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="sf-feature-column">
+
+            <div class="sf-feature-small">
+
+                <div class="sf-feature-number">
+                    02
+                </div>
+
+                <div class="sf-small-icon">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </div>
+
+                <h3>Learn from PDFs</h3>
+
+                <p>
+                    Turn your study materials into a searchable
+                    and intelligent learning resource.
+                </p>
+
+            </div>
+
+
+            <div class="sf-feature-small">
+
+                <div class="sf-feature-number">
+                    03
+                </div>
+
+                <div class="sf-small-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+
+                <h3>Track Progress</h3>
+
+                <p>
+                    Understand your study habits and see how
+                    your learning improves over time.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="sf-workflow">
+
+    <div class="sf-workflow-container">
+
+        <div class="sf-workflow-heading">
+
+            <span class="sf-section-label">
+                HOW IT WORKS
+            </span>
+
+            <h2>
+                From studying to
+                <span>understanding.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="sf-steps">
+
+            <div class="sf-step">
+
+                <div class="sf-step-top">
+
+                    <span>01</span>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </div>
+
+                <div class="sf-step-icon">
+                    <i class="fa-solid fa-user-plus"></i>
+                </div>
+
+                <h3>Create your workspace</h3>
+
+                <p>
+                    Create your StudyForge account and organize
+                    your academic journey.
+                </p>
+
+            </div>
+
+
+            <div class="sf-step">
+
+                <div class="sf-step-top">
+
+                    <span>02</span>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </div>
+
+                <div class="sf-step-icon">
+                    <i class="fa-solid fa-upload"></i>
+                </div>
+
+                <h3>Add your materials</h3>
+
+                <p>
+                    Add subjects, notes and PDFs to build your
+                    personalized study space.
+                </p>
+
+            </div>
+
+
+            <div class="sf-step">
+
+                <div class="sf-step-top">
+
+                    <span>03</span>
+
+                    <i class="fa-solid fa-check"></i>
+
+                </div>
+
+                <div class="sf-step-icon">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+
+                <h3>Learn with AI</h3>
+
+                <p>
+                    Ask questions, understand concepts and
+                    study more efficiently.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="sf-cta">
+
+    <div class="sf-cta-container">
+
+        <div class="sf-cta-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+
+        <span class="sf-section-label">
+            START TODAY
+        </span>
+
+        <h2>
+            Your next level
+            <span>starts here.</span>
+        </h2>
+
+        <p>
+            Build a better study system with StudyForge.
+        </p>
+
+        <a href="{% url 'register' %}" class="sf-cta-button">
+            Create Your Account
             <i class="fa-solid fa-arrow-right"></i>
         </a>
 
     </div>
-
-
-    <div class="workflow-steps">
-
-        <div class="workflow-step">
-
-            <div class="step-number">
-                01
-            </div>
-
-            <div>
-                <h3>Organize</h3>
-                <p>
-                    Add your subjects, notes and study materials.
-                </p>
-            </div>
-
-        </div>
-
-
-        <div class="workflow-line"></div>
-
-
-        <div class="workflow-step">
-
-            <div class="step-number">
-                02
-            </div>
-
-            <div>
-                <h3>Learn</h3>
-                <p>
-                    Use AI assistance to understand difficult topics.
-                </p>
-            </div>
-
-        </div>
-
-
-        <div class="workflow-line"></div>
-
-
-        <div class="workflow-step">
-
-            <div class="step-number">
-                03
-            </div>
-
-            <div>
-                <h3>Practice</h3>
-                <p>
-                    Test your knowledge with smart quizzes.
-                </p>
-            </div>
-
-        </div>
-
-
-        <div class="workflow-line"></div>
-
-
-        <div class="workflow-step">
-
-            <div class="step-number">
-                04
-            </div>
-
-            <div>
-                <h3>Improve</h3>
-                <p>
-                    Track your progress and build better habits.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<section class="cta-section">
-
-```
-<div class="cta-container">
-
-    <div class="cta-icon">
-        <i class="fa-solid fa-graduation-cap"></i>
-    </div>
-
-    <h2>
-        Ready to study smarter?
-    </h2>
-
-    <p>
-        Create your StudyForge account and build
-        your personal learning workspace today.
-    </p>
-
-    <a href="{% url 'register' %}" class="cta-button">
-        Create Free Account
-        <i class="fa-solid fa-arrow-right"></i>
-    </a>
-
-</div>
-```
 
 </section>
 
