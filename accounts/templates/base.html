@@ -2,8 +2,11 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>{% block title %}StudyForge{% endblock %}</title>
@@ -11,12 +14,14 @@
     <link rel="stylesheet" href="{% static 'style.css' %}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
 
 <body>
@@ -32,23 +37,68 @@
                 </div>
 
                 <div class="brand-text">
-                    <span class="brand-name">StudyForge</span>
-                    <span class="brand-tagline">Learn Smarter</span>
+
+                    <span class="brand-name">
+                        StudyForge
+                    </span>
+
+                    <span class="brand-tagline">
+                        Learn Smarter
+                    </span>
+
                 </div>
 
             </a>
 
+
             <nav class="nav-links">
 
                 <a href="{% url 'home' %}" class="nav-link">
+
                     <i class="fa-solid fa-house"></i>
+
                     Home
+
                 </a>
 
-                <a href="{% url 'register' %}" class="nav-link register-nav">
-                    <i class="fa-solid fa-user-plus"></i>
-                    Get Started
-                </a>
+
+                {% if user.is_authenticated %}
+
+                    <a href="{% url 'dashboard' %}" class="nav-link">
+
+                        <i class="fa-solid fa-chart-pie"></i>
+
+                        Dashboard
+
+                    </a>
+
+                    <a href="{% url 'logout' %}" class="nav-link">
+
+                        <i class="fa-solid fa-right-from-bracket"></i>
+
+                        Logout
+
+                    </a>
+
+                {% else %}
+
+                    <a href="{% url 'login' %}" class="nav-link">
+
+                        <i class="fa-solid fa-right-to-bracket"></i>
+
+                        Login
+
+                    </a>
+
+                    <a href="{% url 'register' %}" class="nav-link register-nav">
+
+                        <i class="fa-solid fa-user-plus"></i>
+
+                        Get Started
+
+                    </a>
+
+                {% endif %}
 
             </nav>
 
@@ -70,12 +120,24 @@
         <div class="footer-container">
 
             <div>
-                <strong>StudyForge</strong>
-                <p>AI-powered learning for modern students.</p>
+
+                <strong>
+                    StudyForge
+                </strong>
+
+                <p>
+                    AI-powered learning for modern students.
+                </p>
+
             </div>
 
+
             <div class="footer-right">
-                <p>© 2026 StudyForge. Built with Django.</p>
+
+                <p>
+                    © 2026 StudyForge. Built with Django.
+                </p>
+
             </div>
 
         </div>
@@ -83,4 +145,5 @@
     </footer>
 
 </body>
+
 </html>

@@ -1,0 +1,209 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign In — StudyForge{% endblock %}
+
+{% block content %}
+
+<section class="auth-section">
+
+    <div class="auth-container">
+
+        <div class="auth-left">
+
+            <div class="auth-brand">
+
+                <div class="auth-logo">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+
+                <span>StudyForge</span>
+
+            </div>
+
+            <div class="auth-message">
+
+                <span class="auth-badge">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    WELCOME BACK
+                </span>
+
+                <h1>
+                    Continue your
+                    <span>learning journey.</span>
+                </h1>
+
+                <p>
+                    Sign in to access your personalized study
+                    workspace, organize your materials and keep
+                    making progress with StudyForge.
+                </p>
+
+            </div>
+
+            <div class="benefits">
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+
+                    <div>
+                        <strong>AI-powered learning</strong>
+
+                        <p>
+                            Get intelligent assistance whenever
+                            you need it.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+
+                    <div>
+                        <strong>Your study workspace</strong>
+
+                        <p>
+                            Keep your learning materials organized
+                            in one place.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+
+                    <div>
+                        <strong>Track your progress</strong>
+
+                        <p>
+                            Stay focused and monitor your learning
+                            journey.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="auth-card">
+
+            <div class="auth-card-header">
+
+                <div class="form-icon">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                </div>
+
+                <div>
+
+                    <h2>Welcome back</h2>
+
+                    <p>
+                        Sign in to continue to StudyForge.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            {% if error %}
+
+                <div class="form-error form-general-error">
+                    {{ error }}
+                </div>
+
+            {% endif %}
+
+
+            <form method="POST" class="register-form">
+
+                {% csrf_token %}
+
+
+                <div class="form-group">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <input
+                            type="text"
+                            name="username"
+                            id="username"
+                            placeholder="Enter your username"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="register-button">
+
+                    Sign In
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+
+                <p class="terms">
+
+                    Don't have a StudyForge account?
+
+                    <a href="{% url 'register' %}">
+                        Create an account
+                    </a>
+
+                </p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

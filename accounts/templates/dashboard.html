@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard — StudyForge{% endblock %}
+
+{% block content %}
+
+<section class="dashboard-section">
+
+    <div class="dashboard-container">
+
+        <div class="dashboard-header">
+
+            <div>
+                <span class="dashboard-badge">
+                    <i class="fa-solid fa-sparkles"></i>
+                    STUDYFORGE DASHBOARD
+                </span>
+
+                <h1>
+                    Welcome back,
+                    {{ request.user.username }}
+                </h1>
+
+                <p>
+                    Your personalized learning workspace is ready.
+                </p>
+            </div>
+
+            <div class="dashboard-user">
+
+                <div class="dashboard-avatar">
+                    {{ request.user.username|first|upper }}
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-grid">
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-card-icon">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+
+                <h3>Subjects</h3>
+
+                <p>
+                    Organize your courses and subjects.
+                </p>
+
+                <span class="dashboard-coming">
+                    Coming soon
+                </span>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-card-icon">
+                    <i class="fa-solid fa-file-lines"></i>
+                </div>
+
+                <h3>Notes</h3>
+
+                <p>
+                    Create and manage your study notes.
+                </p>
+
+                <span class="dashboard-coming">
+                    Coming soon
+                </span>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-card-icon">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </div>
+
+                <h3>Study Materials</h3>
+
+                <p>
+                    Upload and organize your learning PDFs.
+                </p>
+
+                <span class="dashboard-coming">
+                    Coming soon
+                </span>
+
+            </div>
+
+
+            <div class="dashboard-card">
+
+                <div class="dashboard-card-icon">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+
+                <h3>AI Study Assistant</h3>
+
+                <p>
+                    Ask questions and learn with AI.
+                </p>
+
+                <span class="dashboard-coming">
+                    Coming soon
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-progress">
+
+            <div class="progress-icon">
+                <i class="fa-solid fa-rocket"></i>
+            </div>
+
+            <div>
+
+                <h3>Your StudyForge journey starts here</h3>
+
+                <p>
+                    More powerful learning tools will be added
+                    to your dashboard as we build StudyForge.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
