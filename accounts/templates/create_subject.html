@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Subject — StudyForge{% endblock %}
+
+{% block content %}
+
+<section class="create-subject-section">
+
+    <div class="create-subject-container">
+
+        <div class="create-subject-header">
+
+            <a href="{% url 'subjects' %}" class="back-link">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to Subjects
+
+            </a>
+
+            <span class="dashboard-badge">
+                <i class="fa-solid fa-plus"></i>
+                NEW SUBJECT
+            </span>
+
+            <h1>Create a Subject</h1>
+
+            <p>
+                Add a subject to organize your study materials
+                and learning activities.
+            </p>
+
+        </div>
+
+
+        <div class="subject-form-card">
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Subject Name
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <i class="fa-solid fa-book"></i>
+
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            placeholder="e.g. Machine Learning"
+                            maxlength="100"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="description">
+                        Description
+                        <span>Optional</span>
+                    </label>
+
+                    <div class="textarea-wrapper">
+
+                        <i class="fa-solid fa-align-left"></i>
+
+                        <textarea
+                            name="description"
+                            id="description"
+                            placeholder="Write a short description about this subject..."
+                            rows="5"
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <div class="subject-form-actions">
+
+                    <a href="{% url 'subjects' %}" class="cancel-button">
+                        Cancel
+                    </a>
+
+                    <button type="submit" class="register-button">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Create Subject
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
