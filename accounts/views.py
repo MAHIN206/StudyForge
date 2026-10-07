@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 from .forms import RegistrationForm
+from .models import Subject
 
 
 def home(request):
@@ -49,8 +51,46 @@ def user_login(request):
     return render(request, 'login.html')
 
 
+@login_required(login_url='login')
 def dashboard(request):
-    return render(request, 'dashboard.html')
+
+    subjects = Subject.objects.filter(user=request.user)
+
+    return render(request, 'dashboard.html', {
+        'subjects': subjects
+    })
+
+
+@login_required(login_url='login')
+def subjects(request):
+
+    subjects = Subject.objects.filter(user=request.user)
+
+    return render(request, 'subjects.html', {
+        'subjects': subjects
+    })
+
+
+@login_required(login_url='login')
+def create_subject(request):
+
+    if request.method == 'POST':
+
+        name = request.POST.get('name')
+        description = request.POST.get('description')
+
+        if name:
+            Subject.objects.create(
+                user=request.user,
+                name=name,
+                description=description
+            )
+
+            return redirect('subjects')
+
+    return render(request, 'create_subject.html')
+
+
 def user_logout(request):
     logout(request)
     return redirect('home')

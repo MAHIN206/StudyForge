@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block title %}My Subjects — StudyForge{% endblock %}
+
+{% block content %}
+
+<section class="subjects-section">
+
+    <div class="subjects-container">
+
+        <div class="subjects-header">
+
+            <div>
+
+                <span class="dashboard-badge">
+                    <i class="fa-solid fa-book-open"></i>
+                    MY SUBJECTS
+                </span>
+
+                <h1>Study Subjects</h1>
+
+                <p>
+                    Organize your courses and keep your learning
+                    journey structured.
+                </p>
+
+            </div>
+
+            <a href="{% url 'create_subject' %}" class="register-button">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add Subject
+
+            </a>
+
+        </div>
+
+
+        {% if subjects %}
+
+            <div class="subjects-grid">
+
+                {% for subject in subjects %}
+
+                    <div class="subject-card">
+
+                        <div class="subject-card-icon">
+
+                            <i class="fa-solid fa-book"></i>
+
+                        </div>
+
+                        <div class="subject-card-content">
+
+                            <h3>
+                                {{ subject.name }}
+                            </h3>
+
+                            {% if subject.description %}
+
+                                <p>
+                                    {{ subject.description }}
+                                </p>
+
+                            {% else %}
+
+                                <p>
+                                    No description added.
+                                </p>
+
+                            {% endif %}
+
+                            <span class="subject-date">
+
+                                <i class="fa-regular fa-calendar"></i>
+
+                                Created {{ subject.created_at|date:"M d, Y" }}
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div class="empty-subjects">
+
+                <div class="empty-icon">
+
+                    <i class="fa-solid fa-book-open"></i>
+
+                </div>
+
+                <h2>No subjects yet</h2>
+
+                <p>
+                    Start organizing your study life by creating
+                    your first subject.
+                </p>
+
+                <a href="{% url 'create_subject' %}" class="register-button">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Create Your First Subject
+
+                </a>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}
