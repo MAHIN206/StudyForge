@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 from .forms import RegistrationForm
-from .models import Subject
+from .models import Subject, Note
 
 
 def home(request):
@@ -90,6 +90,16 @@ def create_subject(request):
             return redirect('subjects')
 
     return render(request, 'create_subject.html')
+
+
+@login_required(login_url='login')
+def notes(request):
+
+    notes = Note.objects.filter(user=request.user)
+
+    return render(request, 'notes.html', {
+        'notes': notes
+    })
 
 
 def user_logout(request):

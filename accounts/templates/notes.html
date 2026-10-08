@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+
+{% block title %}My Notes — StudyForge{% endblock %}
+
+{% block content %}
+
+<section class="notes-section">
+
+    <div class="notes-container">
+
+        <div class="notes-header">
+
+            <div>
+
+                <span class="dashboard-badge">
+
+                    <i class="fa-solid fa-file-lines"></i>
+
+                    MY NOTES
+
+                </span>
+
+                <h1>
+                    Study Notes
+                </h1>
+
+                <p>
+                    Create, organize and manage your study notes
+                    in one place.
+                </p>
+
+            </div>
+
+
+            <a href="#" class="register-button">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add Note
+
+            </a>
+
+        </div>
+
+
+        {% if notes %}
+
+            <div class="notes-grid">
+
+                {% for note in notes %}
+
+                    <div class="note-card">
+
+                        <div class="note-card-top">
+
+                            <div class="note-card-icon">
+
+                                <i class="fa-solid fa-file-lines"></i>
+
+                            </div>
+
+                            <span class="note-subject">
+
+                                {{ note.subject.name }}
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="note-card-content">
+
+                            <h3>
+                                {{ note.title }}
+                            </h3>
+
+                            <p>
+                                {{ note.content|truncatewords:25 }}
+                            </p>
+
+                        </div>
+
+
+                        <div class="note-card-footer">
+
+                            <span>
+
+                                <i class="fa-regular fa-calendar"></i>
+
+                                {{ note.created_at|date:"M d, Y" }}
+
+                            </span>
+
+                            <span>
+
+                                <i class="fa-solid fa-clock"></i>
+
+                                {{ note.created_at|date:"g:i A" }}
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div class="empty-notes">
+
+                <div class="empty-icon">
+
+                    <i class="fa-solid fa-file-lines"></i>
+
+                </div>
+
+                <h2>
+                    No notes yet
+                </h2>
+
+                <p>
+                    Start building your personal study library
+                    by creating your first note.
+                </p>
+
+                <a href="#" class="register-button">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Create Your First Note
+
+                </a>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}
