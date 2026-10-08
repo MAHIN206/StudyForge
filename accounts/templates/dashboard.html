@@ -42,6 +42,7 @@
 
         <div class="dashboard-grid">
 
+
             <a href="{% url 'subjects' %}" class="dashboard-card">
 
                 <div class="dashboard-card-icon">
@@ -51,7 +52,9 @@
                 <h3>Subjects</h3>
 
                 <p>
-                    Organize your courses and subjects.
+                    You currently have
+                    {{ subject_count }}
+                    subject{{ subject_count|pluralize }}.
                 </p>
 
                 <span class="dashboard-action">
@@ -118,6 +121,7 @@
 
             </div>
 
+
         </div>
 
 
@@ -142,6 +146,7 @@
             </div>
 
         </div>
+
 
     </div>
 
