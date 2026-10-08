@@ -57,7 +57,8 @@ def dashboard(request):
     subjects = Subject.objects.filter(user=request.user)
 
     return render(request, 'dashboard.html', {
-        'subjects': subjects
+        'subjects': subjects,
+        'subject_count': subjects.count()
     })
 
 
@@ -92,5 +93,7 @@ def create_subject(request):
 
 
 def user_logout(request):
+
     logout(request)
+
     return redirect('home')
