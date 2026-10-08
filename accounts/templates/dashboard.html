@@ -11,6 +11,7 @@
         <div class="dashboard-header">
 
             <div>
+
                 <span class="dashboard-badge">
                     <i class="fa-solid fa-sparkles"></i>
                     STUDYFORGE DASHBOARD
@@ -24,7 +25,9 @@
                 <p>
                     Your personalized learning workspace is ready.
                 </p>
+
             </div>
+
 
             <div class="dashboard-user">
 
@@ -39,7 +42,7 @@
 
         <div class="dashboard-grid">
 
-            <div class="dashboard-card">
+            <a href="{% url 'subjects' %}" class="dashboard-card">
 
                 <div class="dashboard-card-icon">
                     <i class="fa-solid fa-book-open"></i>
@@ -51,11 +54,12 @@
                     Organize your courses and subjects.
                 </p>
 
-                <span class="dashboard-coming">
-                    Coming soon
+                <span class="dashboard-action">
+                    Manage Subjects
+                    <i class="fa-solid fa-arrow-right"></i>
                 </span>
 
-            </div>
+            </a>
 
 
             <div class="dashboard-card">
@@ -125,11 +129,14 @@
 
             <div>
 
-                <h3>Your StudyForge journey starts here</h3>
+                <h3>
+                    Your StudyForge journey starts here
+                </h3>
 
                 <p>
-                    More powerful learning tools will be added
-                    to your dashboard as we build StudyForge.
+                    Organize your subjects first. Notes,
+                    study materials and AI-powered learning
+                    tools will be added next.
                 </p>
 
             </div>
