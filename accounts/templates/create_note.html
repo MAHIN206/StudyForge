@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Note — StudyForge{% endblock %}
+
+{% block content %}
+
+<section class="create-subject-section">
+
+```
+<div class="create-subject-container">
+
+    <div class="create-subject-header">
+
+        <a href="{% url 'notes' %}" class="back-link">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back to Notes
+
+        </a>
+
+        <span class="dashboard-badge">
+
+            <i class="fa-solid fa-pen"></i>
+
+            NEW NOTE
+
+        </span>
+
+        <h1>
+            Create a Note
+        </h1>
+
+        <p>
+            Write and organize your study notes
+            under a specific subject.
+        </p>
+
+    </div>
+
+
+    <div class="subject-form-card">
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+
+            <div class="form-group">
+
+                <label for="subject">
+                    Subject
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="fa-solid fa-book"></i>
+
+                    <select
+                        name="subject"
+                        id="subject"
+                        required
+                    >
+
+                        <option value="">
+                            Select a subject
+                        </option>
+
+                        {% for subject in subjects %}
+
+                            <option value="{{ subject.id }}">
+
+                                {{ subject.name }}
+
+                            </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="title">
+                    Note Title
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="fa-solid fa-heading"></i>
+
+                    <input
+                        type="text"
+                        name="title"
+                        id="title"
+                        placeholder="e.g. Linear Regression"
+                        maxlength="200"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="content">
+                    Note Content
+                </label>
+
+                <div class="textarea-wrapper">
+
+                    <i class="fa-solid fa-align-left"></i>
+
+                    <textarea
+                        name="content"
+                        id="content"
+                        placeholder="Write your study note here..."
+                        rows="10"
+                        required
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <div class="subject-form-actions">
+
+                <a
+                    href="{% url 'notes' %}"
+                    class="cancel-button"
+                >
+                    Cancel
+                </a>
+
+                <button
+                    type="submit"
+                    class="register-button"
+                >
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Create Note
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+{% endblock %}

@@ -47,6 +47,12 @@ urlpatterns = [
     ),
 
     path(
+        'notes/create/',
+        views.create_note,
+        name='create_note'
+    ),
+
+    path(
         'logout/',
         views.user_logout,
         name='logout'
