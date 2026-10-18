@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
@@ -115,7 +115,8 @@ def create_note(request):
 
         if subject_id and title and content:
 
-            subject = Subject.objects.get(
+            subject = get_object_or_404(
+                Subject,
                 id=subject_id,
                 user=request.user
             )
@@ -130,6 +131,45 @@ def create_note(request):
             return redirect('notes')
 
     return render(request, 'create_note.html', {
+        'subjects': subjects
+    })
+
+
+@login_required(login_url='login')
+def edit_note(request, note_id):
+
+    note = get_object_or_404(
+        Note,
+        id=note_id,
+        user=request.user
+    )
+
+    subjects = Subject.objects.filter(user=request.user)
+
+    if request.method == 'POST':
+
+        subject_id = request.POST.get('subject')
+        title = request.POST.get('title', '').strip()
+        content = request.POST.get('content', '').strip()
+
+        if subject_id and title and content:
+
+            subject = get_object_or_404(
+                Subject,
+                id=subject_id,
+                user=request.user
+            )
+
+            note.subject = subject
+            note.title = title
+            note.content = content
+
+            note.save()
+
+            return redirect('notes')
+
+    return render(request, 'edit_note.html', {
+        'note': note,
         'subjects': subjects
     })
 
