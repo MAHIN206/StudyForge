@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Note — StudyForge{% endblock %}
+
+{% block content %}
+
+<section class="create-subject-section">
+
+    <div class="create-subject-container">
+
+        <div class="create-subject-header">
+
+            <a href="{% url 'notes' %}" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to Notes
+            </a>
+
+            <span class="dashboard-badge">
+                <i class="fa-solid fa-pen-to-square"></i>
+                EDIT NOTE
+            </span>
+
+            <h1>Edit Your Note</h1>
+
+            <p>
+                Update your note title, content, or subject.
+            </p>
+
+        </div>
+
+
+        <div class="subject-form-card">
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <div class="form-group">
+
+                    <label for="subject">
+                        Subject
+                    </label>
+
+                    <select
+                        name="subject"
+                        id="subject"
+                        required
+                    >
+
+                        {% for subject in subjects %}
+
+                            <option
+                                value="{{ subject.id }}"
+                                {% if subject.id == note.subject.id %}selected{% endif %}
+                            >
+                                {{ subject.name }}
+                            </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="title">
+                        Note Title
+                    </label>
+
+                    <input
+                        type="text"
+                        name="title"
+                        id="title"
+                        value="{{ note.title }}"
+                        maxlength="200"
+                        placeholder="Enter note title"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="content">
+                        Note Content
+                    </label>
+
+                    <textarea
+                        name="content"
+                        id="content"
+                        rows="10"
+                        placeholder="Write your study note here..."
+                        required
+                    >{{ note.content }}</textarea>
+
+                </div>
+
+
+                <div class="subject-form-actions">
+
+                    <a
+                        href="{% url 'notes' %}"
+                        class="cancel-button"
+                    >
+                        Cancel
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="register-button"
+                    >
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Save Changes
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
