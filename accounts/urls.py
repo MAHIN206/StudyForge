@@ -53,6 +53,12 @@ urlpatterns = [
     ),
 
     path(
+        'notes/edit/<int:note_id>/',
+        views.edit_note,
+        name='edit_note'
+    ),
+
+    path(
         'logout/',
         views.user_logout,
         name='logout'
