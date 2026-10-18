@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Note — StudyForge{% endblock %}
+
+{% block content %}
+
+<section class="create-subject-section">
+
+    <div class="create-subject-container">
+
+        <div class="create-subject-header">
+
+            <a href="{% url 'notes' %}" class="back-link">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to Notes
+
+            </a>
+
+            <span class="dashboard-badge">
+
+                <i class="fa-solid fa-trash"></i>
+
+                DELETE NOTE
+
+            </span>
+
+            <h1>Delete Your Note</h1>
+
+            <p>
+                Please confirm before deleting this study note.
+            </p>
+
+        </div>
+
+
+        <div class="subject-form-card">
+
+            <div class="empty-icon">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+            </div>
+
+            <h2>{{ note.title }}</h2>
+
+            <p>
+                Are you sure you want to delete this note?
+                This action cannot be undone.
+            </p>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <div class="subject-form-actions">
+
+                    <a
+                        href="{% url 'notes' %}"
+                        class="cancel-button"
+                    >
+                        Cancel
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="delete-note-button"
+                    >
+
+                        <i class="fa-solid fa-trash"></i>
+
+                        Yes, Delete Note
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
