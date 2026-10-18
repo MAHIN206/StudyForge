@@ -110,8 +110,8 @@ def create_note(request):
     if request.method == 'POST':
 
         subject_id = request.POST.get('subject')
-        title = request.POST.get('title')
-        content = request.POST.get('content')
+        title = request.POST.get('title', '').strip()
+        content = request.POST.get('content', '').strip()
 
         if subject_id and title and content:
 
@@ -171,6 +171,26 @@ def edit_note(request, note_id):
     return render(request, 'edit_note.html', {
         'note': note,
         'subjects': subjects
+    })
+
+
+@login_required(login_url='login')
+def delete_note(request, note_id):
+
+    note = get_object_or_404(
+        Note,
+        id=note_id,
+        user=request.user
+    )
+
+    if request.method == 'POST':
+
+        note.delete()
+
+        return redirect('notes')
+
+    return render(request, 'delete_note.html', {
+        'note': note
     })
 
 
